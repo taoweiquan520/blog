@@ -1,0 +1,23 @@
+/* siderbar css */
+.side {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    bottom: 150px;
+    width: 300px;
+    padding-top: 20px;
+    padding-left: 15px;
+    border-right: 1px solid #eee;
+    -webkit-box-shadow: 0 3px 2px 0 rgba(0, 0, 0, 0.03);
+    box-shadow: 3px 0 0 0 rgba(0, 0, 0, 0.03);
+}
+.side-toolbar .toolbar-item {
+    margin-bottom: 15px;
+}
+.side-toolbar .toolbar-item a {
+    color: #364149;
+    font-size: 16px;
+}
+.side-toolbar .toolbar-item a:hover {
+    color: #008cff;
+}

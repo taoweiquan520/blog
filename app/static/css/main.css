@@ -1,0 +1,11 @@
+/* main.css */
+.content-wrap {
+    /* padding: 10px;
+    margin-left: 300px; */
+    position: absolute;
+    top: 50px;
+    right: 0;
+    bottom: 150px;
+    left: 300px;
+    overflow: auto;
+}

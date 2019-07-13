@@ -1,0 +1,32 @@
+/* reset.css */
+body, div, p, ul, ol, li, table, 
+tr, td, th, h1, h2, h3, h4, h5 {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    box-sizing: border-box;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    color: #333;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    letter-spacing: .2px;
+    font-size: 14px;
+}
+
+h1, h2, h3, h4, h5, h6, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+a, a:active, a:focus {
+    text-decoration: none;
+}
