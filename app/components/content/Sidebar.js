@@ -4,34 +4,27 @@ import './css/sidebar.css'
 
 class Sidebar extends React.Component {
     render() {
+        const list = [
+            {router: 'html'},
+            {router: 'javascript'},
+            {router: 'css'},
+            {router: 'react'},
+            {router: 'redux'},
+        ];
         return (
             <div className="side">
                 <div className="side-toolbar">
-                    <div className="toolbar-item">
-                        <NavLink to="/category/html" activeClassName="selected">
-                            <b>1.</b>html
-                        </NavLink>
-                    </div>
-                    <div className="toolbar-item">
-                        <NavLink to="/category/javascript" activeClassName="selected">
-                            <b>2.</b>javascript
-                        </NavLink>
-                    </div>
-                    <div className="toolbar-item">
-                        <NavLink to="/category/css" activeClassName="selected">
-                            <b>3.</b>css
-                        </NavLink>
-                    </div>
-                    <div className="toolbar-item">
-                        <NavLink to="/category/react" activeClassName="selected">
-                            <b>4.</b>react
-                        </NavLink>
-                    </div>
-                    <div className="toolbar-item">
-                        <NavLink to="/category/redux" activeClassName="selected">
-                            <b>5.</b>redux
-                        </NavLink>
-                    </div>
+                    {
+                        list.map((item, index) => {
+                            return (
+                                <div className="toolbar-item" key={index + item.router}>
+                                    <NavLink to={`/category/${item.router}`} activeClassName='selected'>
+                                        <b>{index + 1}.</b>{item.router}
+                                    </NavLink>
+                                </div>
+                            );
+                        })
+                    }
                 </div>
             </div>
         )

@@ -1,12 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import { CSSTransitionGroup } from 'react-transition-group';
 import { getArticleList } from '../../actions/articleAction';
 import { article } from '../../../public/article.js';
 
 // css
 import './css/content_articleList.css';
+import '../../../mock';
 
 class ArticleList extends React.Component {
     constructor(props) {
@@ -19,6 +21,7 @@ class ArticleList extends React.Component {
     }
 
     componentDidMount() {
+        console.log('初始化');
         const {dispatch, match} = this.props;
         
         dispatch(getArticleList.asyncAction(match.params.type));
@@ -30,14 +33,14 @@ class ArticleList extends React.Component {
     }
 
     componentWillUpdate(nextProps) {
-        // if (nextProps.location.)
+        // console.log(nextProps);
     }
 
     render() {
         const {match, allIds} = this.props;
         
         const renderArticleList = 
-        allIds.map((item, index) => (
+            allIds.map((item, index) => (
                 <div className="article" key={index}>
                     <div className="inner">
                         <h2 className="article-title"><Link className="article-link" to={`/article/${item.article_id}`}>{item.title}</Link></h2>

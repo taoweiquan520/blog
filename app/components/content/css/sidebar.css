@@ -21,3 +21,7 @@
 .side-toolbar .toolbar-item a:hover {
     color: #008cff;
 }
+.side-toolbar .toolbar-item .selected {
+    color: red;
+    font-weight: bold;
+}
