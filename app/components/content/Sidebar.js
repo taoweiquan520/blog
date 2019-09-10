@@ -1,8 +1,31 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { getArticleList } from '../../actions/articleAction';
 import './css/sidebar.css'
 
 class Sidebar extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.categoryChange = this.categoryChange.bind(this);
+    }
+
+    categoryChange(url) {
+        console.log(this.context)
+        const {dispatch} = this.props;
+        
+        dispatch(getArticleList.asyncAction(url));
+        this.context.router.push(`/category/${url}`);
+    }
+
+    componentDidMount() {
+        
+    }
+    componentDidUpdate() {
+        alert('1')
+
+    }
+
     render() {
         const list = [
             {router: 'html'},
@@ -30,5 +53,10 @@ class Sidebar extends React.Component {
         )
     }
 }
+const mapStateToProps = (state, ownProps) => {
+    return state.articleReducer;
+};
 
-export default Sidebar;
+export default connect(
+    mapStateToProps
+)(Sidebar);
