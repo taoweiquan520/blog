@@ -14,7 +14,7 @@ class Sidebar extends React.Component {
         router: PropTypes.object.isRequired,
     }
 
-    async categoryChange(url) {
+    categoryChange(url) {
         console.log(this.context)
         const {dispatch} = this.props;
         
@@ -43,10 +43,10 @@ class Sidebar extends React.Component {
                     {
                         list.map((item, index) => {
                             return (
-                                <div className="toolbar-item" key={index + item.router}>
-                                    <NavLink to={`/category/${item.router}`} activeClassName='selected'>
+                                <div className="toolbar-item" key={index}>
+                                    <a onClick={() => this.categoryChange(item.router)}>
                                         <b>{index + 1}.</b>{item.router}
-                                    </NavLink>
+                                    </a>
                                 </div>
                             );
                         })

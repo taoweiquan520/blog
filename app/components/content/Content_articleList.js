@@ -8,7 +8,7 @@ import { article } from '../../../public/article.js';
 
 // css
 import './css/content_articleList.css';
-import '../../../mock';
+// import '../../../mock';
 
 class ArticleList extends React.Component {
     constructor(props) {

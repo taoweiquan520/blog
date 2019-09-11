@@ -5,7 +5,7 @@ const getArticleListById = (state, action) => {
     const {payload = {}} = action;
     const {data} = payload;
     const byId = {};
-    
+
     data.list.map(item => {
         byId[item.article_id] = item;
     })

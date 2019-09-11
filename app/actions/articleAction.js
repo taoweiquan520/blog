@@ -7,6 +7,7 @@ import { appActions } from './appAction';
 export const getArticleList = {
     asyncAction: function(posts) {
         const self = this;
+
         return async (dispatch) => {
             dispatch(appActions.fetchStart());
             return await axios({
