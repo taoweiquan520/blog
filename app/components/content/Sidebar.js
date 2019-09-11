@@ -5,13 +5,14 @@ import PropTypes from 'prop-types';
 import './css/sidebar.css';
 
 class Sidebar extends React.Component {
+    static contextTypes = {
+        router: PropTypes.object.isRequired,
+    }
+    
     constructor(props) {
         super(props);
 
         this.categoryChange = this.categoryChange.bind(this);
-    }
-    static contextTypes = {
-        router: PropTypes.object.isRequired,
     }
 
     categoryChange(url) {
