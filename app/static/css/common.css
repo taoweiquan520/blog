@@ -13,3 +13,57 @@
     width: 14px;
     height: 14px;
 }
+
+body {
+  font-family: -apple-system,"Helvetica Neue",Helvetica,Arial,"PingFang SC","Hiragino Sans GB","WenQuanYi Micro Hei","Microsoft Yahei",sans-serif;
+  font-size: 14px;
+  line-height: 1.42858;
+  color: #333;
+  background-color: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 栅格 */
+.row {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+.row:after, .row:before {
+  content: " ";
+  display: table;
+}
+.col-md-1 {
+  width: 8.33333%;
+}
+.col-md-2 {
+  width: 16.66667%;
+}
+.col-md-3 {
+  width: 25%;
+}
+.col-md-4 {
+  width: 33.33333%;
+}
+.col-md-6 {
+  width: 50%;
+}
+.col-md-7 {
+  width: 58.33333%;
+}
+.col-md-8 {
+  width: 66.66667%;
+}
+.col-md-9 {
+  width: 75%;
+}
+.col-md-10 {
+  width: 58.33333%;
+}
+.col-md-12 {
+  width: 100%;
+}
+.col-md-1, .col-md-2, .col-md-3, .col-md-4,
+.col-md-5, .col-md-6, .col-md-7, .col-md-8,
+.col-md-9, .col-md-10, .col-md-12 {
+  float: left;
+}

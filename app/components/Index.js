@@ -2,7 +2,7 @@ import React from "react";
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 
 // js module
 import rootReducer from '../reducers/rootReducer';
@@ -31,19 +31,23 @@ class Index extends React.Component {
     render() {
         return (
             <Provider store = {store}>
+                <Router>
                 <div className="blog-wrap">
-                    <Header />
-                    <Sidebar />
-                    <div className="content-wrap">
-                        <Switch>
-                            <Route exact path="/" component={Content} />
-                            <Route path="/category/:type" component={ArticleListWrap} />
-                            <Route path="/article/:type" component={ArticleDetailWrap} />
-                            {/* <Route component={NotFount} /> */}
-                        </Switch>
-                    </div>
-                    <Footer />
+                        <Header />
+                        <div className="container index">
+                            <div className="row">
+                                <Sidebar />
+                                <Switch>
+                                    <Route exact path="/" component={Content} />
+                                    <Route path="/category/:type" component={ArticleListWrap} />
+                                    <Route path="/article/:type" component={ArticleDetailWrap} />
+                                    {/* <Route component={NotFount} /> */}
+                                </Switch>
+                            </div>
+                        </div>
+                        <Footer />
                 </div>
+                </Router>
             </Provider>
         )
     }

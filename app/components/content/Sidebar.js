@@ -15,7 +15,6 @@ class Sidebar extends React.Component {
     }
 
     categoryChange(url) {
-        console.log(this.context)
         const {dispatch} = this.props;
         
         dispatch(getArticleList.asyncAction(url));
@@ -30,6 +29,7 @@ class Sidebar extends React.Component {
     }
 
     render() {
+        console.log(this.props)
         const list = [
             {router: 'html'},
             {router: 'javascript'},
@@ -38,12 +38,12 @@ class Sidebar extends React.Component {
             {router: 'redux'},
         ];
         return (
-            <div className="side">
+            <div className="col-md-2 side">
                 <div className="side-toolbar">
                     {
                         list.map((item, index) => {
                             return (
-                                <div className="toolbar-item" key={index}>
+                                <div className={false ? 'toolbar-item selected' : 'toolbar-item'} key={index}>
                                     <a onClick={() => this.categoryChange(item.router)}>
                                         <b>{index + 1}.</b>{item.router}
                                     </a>

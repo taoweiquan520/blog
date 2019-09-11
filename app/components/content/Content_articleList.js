@@ -21,7 +21,6 @@ class ArticleList extends React.Component {
     }
 
     componentDidMount() {
-        console.log('初始化');
         const {dispatch, match} = this.props;
         
         dispatch(getArticleList.asyncAction(match.params.type));
@@ -37,7 +36,6 @@ class ArticleList extends React.Component {
     }
 
     render() {
-        console.log(this.props)
         const {match, allIds} = this.props;
         
         const renderArticleList = 
@@ -57,7 +55,7 @@ class ArticleList extends React.Component {
             ));
        
         return (
-            <div className="content-list">
+            <div className="col-md-10 content-list">
                 <CSSTransitionGroup transitionName="example" transitionEnterTimeout={300} transitionLeaveTimeout={300}>
                 {
                     allIds.length > 0 ? renderArticleList : 
