@@ -42,6 +42,7 @@
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.6",
     "html-webpack-plugin": "^2.30.1",
+    "mockjs": "^1.0.1-beta3",
     "postcss-loader": "^2.0.10",
     "react-devtools": "^3.2.1",
     "react-transform-hmr": "^1.0.4",

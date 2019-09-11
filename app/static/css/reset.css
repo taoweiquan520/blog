@@ -27,6 +27,22 @@ h1, h2, h3, h4, h5, h6, p, ul {
     padding: 0;
 }
 
+ul, ol {
+    list-style: none;
+}
+
+a, button {
+    cursor: pointer;
+}
+
 a, a:active, a:focus {
     text-decoration: none;
+}
+
+a:active,
+button:active,
+input:active,
+input:focus {
+    border: none;
+    outline: none;
 }

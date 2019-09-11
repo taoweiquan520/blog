@@ -30,20 +30,28 @@ class Sidebar extends React.Component {
     }
 
     render() {
-        const list = ['html', 'javascript', 'css', 'react', 'redux'];
+        const list = [
+            {router: 'html'},
+            {router: 'javascript'},
+            {router: 'css'},
+            {router: 'react'},
+            {router: 'redux'},
+        ];
         return (
             <div className="side">
                 <div className="side-toolbar">
-                {
-                    list.map((item, index) => (
-                        <div className="toolbar-item" key={index}>
-                            <a onClick={e => this.categoryChange(item)}>
-                                <b>{index + 1}.</b>{item}
-                            </a>
-                        </div>
-                    ))
-                }
-                </div>  
+                    {
+                        list.map((item, index) => {
+                            return (
+                                <div className="toolbar-item" key={index + item.router}>
+                                    <NavLink to={`/category/${item.router}`} activeClassName='selected'>
+                                        <b>{index + 1}.</b>{item.router}
+                                    </NavLink>
+                                </div>
+                            );
+                        })
+                    }
+                </div>
             </div>
         )
     }
