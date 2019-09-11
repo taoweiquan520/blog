@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getArticleList } from '../../actions/articleAction';
-import './css/sidebar.css'
+import PropTypes from 'prop-types';
+import './css/sidebar.css';
 
 class Sidebar extends React.Component {
     constructor(props) {
@@ -9,21 +10,23 @@ class Sidebar extends React.Component {
 
         this.categoryChange = this.categoryChange.bind(this);
     }
+    static contextTypes = {
+        router: PropTypes.object.isRequired,
+    }
 
-    categoryChange(url) {
+    async categoryChange(url) {
         console.log(this.context)
         const {dispatch} = this.props;
         
         dispatch(getArticleList.asyncAction(url));
-        this.context.router.push(`/category/${url}`);
+        this.context.router.history.push(`/category/${url}`);
     }
 
     componentDidMount() {
         
     }
     componentDidUpdate() {
-        alert('1')
-
+   
     }
 
     render() {

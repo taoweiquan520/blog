@@ -7,9 +7,9 @@ import { appActions } from './appAction';
 export const getArticleList = {
     asyncAction: function(posts) {
         const self = this;
-        return (dispatch) => {
+        return async (dispatch) => {
             dispatch(appActions.fetchStart());
-            return axios({
+            return await axios({
                 method: 'post',
                 url: '/api/article/getArticles.json',
                 data: {
@@ -24,6 +24,11 @@ export const getArticleList = {
                     console.log('err', err)
                     dispatch(appActions.fetchFail(err));
                 });
+
+                
+            // const res = await axios.post('/api/article/getArticles.json', { category: posts });
+            // dispatch(self.action(res.data));
+            // dispatch(appActions.fetchSuccess());
         }
     },
     action: (data) => {  //data：后天返回的文章列表数据

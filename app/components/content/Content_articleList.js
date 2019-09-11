@@ -34,6 +34,7 @@ class ArticleList extends React.Component {
     }
 
     render() {
+        console.log(this.props)
         const {match, allIds} = this.props;
         
         const renderArticleList = 
