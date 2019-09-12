@@ -37,13 +37,19 @@ class ArticleList extends React.Component {
 
     render() {
         const {match, allIds} = this.props;
-        
+        // 获取img中的src正则
+        const imgReg = /<img.*?(?:>|\/>)/gi;
+        const srcReg = /src=[\'\"]?([^\'\"]*)[\'\"]?/i;
+
         const renderArticleList = 
-            allIds.map((item, index) => (
-                <div className="article" key={index}>
+            allIds.map((item, index) => {
+                const img = item.content.match(imgReg);
+                const imgSrc = img[0] ? img[0].match(srcReg) : '';
+                debugger
+                return <div className={imgSrc[1] ? "article-list has-img" : "article-list"} key={index}>
                     <div className="inner">
                         <h2 className="article-title"><Link className="article-link" to={`/article/${item.article_id}`}>{item.title}</Link></h2>
-                        <p className="article-summary">
+                        <p className="abstract">
                             {item.content.slice(0, 15)}
                         </p>
                         <div className="article-tool">
@@ -51,11 +57,18 @@ class ArticleList extends React.Component {
                             <span className="article-more"><Link to={`/article/${item.article_id}`}>Read more<i>></i></Link></span>
                         </div>
                     </div>
+                    {
+                        imgSrc[1] ?
+                            <a className="wrap-img">
+                                <img src={imgSrc[1]} />
+                            </a> 
+                            : ''
+                    }
                 </div>
-            ));
-       
+            });   
+
         return (
-            <div className="col-md-10 content-list">
+            <div className="col-md-10 content-list middle">
                 <CSSTransitionGroup transitionName="example" transitionEnterTimeout={300} transitionLeaveTimeout={300}>
                 {
                     allIds.length > 0 ? renderArticleList : 

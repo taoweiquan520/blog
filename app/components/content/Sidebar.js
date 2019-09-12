@@ -39,7 +39,7 @@ class Sidebar extends React.Component {
             {router: 'redux'},
         ];
         return (
-            <div className="col-md-2 side">
+            <div className="col-md-2 side left">
                 <div className="side-toolbar">
                     {
                         list.map((item, index) => {

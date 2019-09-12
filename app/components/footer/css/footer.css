@@ -8,4 +8,5 @@
     border-top: 1px solid #ebebeb;
     background-color: #ebebeb;
     text-align: center;
+    overflow: hidden;
 }

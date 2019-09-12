@@ -21,6 +21,19 @@ body {
   color: #333;
   background-color: #fff;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* 清除浮动 */
+.clearfix {
+  zoom: 1;
+}
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  height: 0;
 }
 
 /* 栅格 */
