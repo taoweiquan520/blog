@@ -9,10 +9,12 @@ import rootReducer from '../reducers/rootReducer';
 import NotFount from './NotFount';
 import Header from './header/Header';
 import Sidebar from './content/Sidebar';
+import Hot from'../components/content/Hot';
 import Content from './content/Content';
 import ArticleList from './content/Content_articleList';
 import ArticleDetail from './content/Content_articleDetail';
 import Footer from './footer/Footer';
+import Loading from '../common/Loading';
 import connectRoute from '../common/connectRoute';
 // css
 import '../static/css/reset.css';
@@ -31,23 +33,23 @@ class Index extends React.Component {
     render() {
         return (
             <Provider store = {store}>
-                <Router>
                 <div className="blog-wrap">
-                        <Header />
-                        <div className="container index">
-                            <div className="row">
-                                <Sidebar />
-                                <Switch>
-                                    <Route exact path="/" component={Content} />
-                                    <Route path="/category/:type" component={ArticleListWrap} />
-                                    <Route path="/article/:type" component={ArticleDetailWrap} />
-                                    {/* <Route component={NotFount} /> */}
-                                </Switch>
-                            </div>
+                    <Header />
+                    <div className="container index">
+                        <div className="row">
+                            <Sidebar />
+                            <Switch>
+                                <Route exact path="/" component={Content} />
+                                <Route path="/category/:type" component={ArticleListWrap} />
+                                <Route path="/article/:type" component={ArticleDetailWrap} />
+                                {/* <Route component={NotFount} /> */}
+                            </Switch>
+                            <Hot />
                         </div>
-                        <Footer />
+                    </div>
+                    <Footer />
+                    <Loading />
                 </div>
-                </Router>
             </Provider>
         )
     }

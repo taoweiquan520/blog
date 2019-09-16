@@ -1,0 +1,27 @@
+.hot-list {
+    position: relative;
+}
+.hot-list .hot-list-title {
+    padding-left: 10px;
+    height: 32px;
+    background-color: #ea6f5a;
+    color: #fff;
+    font-size: 16px;
+    line-height: 30px;
+}
+.hot-list a {
+    padding: 5px 10px;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border-left: 1px solid #ea6f5a;
+    border-right: 1px solid #ea6f5a;
+    color: #777;
+}
+.hot-list a:last-child {
+    border-bottom: 1px solid #ea6f5a;
+}
+.keyword-wrap {
+
+}

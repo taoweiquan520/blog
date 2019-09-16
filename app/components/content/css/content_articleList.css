@@ -1,4 +1,8 @@
 /* content_articleList css */
+.content-list {
+    position: relative;
+    /* margin-left: 125px; */
+}
 .content-list .article-list {
     position: relative;
     padding: 20px 0;
@@ -49,6 +53,13 @@
     font-size: 13px;
     line-height: 24px;
     color: #999;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .content-list .article-tool {
     display: flex;

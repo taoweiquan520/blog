@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { getArticleList } from '../../actions/articleAction';
 import PropTypes from 'prop-types';
 import './css/sidebar.css';
@@ -38,16 +39,24 @@ class Sidebar extends React.Component {
             {router: 'react'},
             {router: 'redux'},
         ];
+        const selectStyle = {
+            backgroundColor: '#ea6f5a',
+            color: '#fff',
+        }
         return (
             <div className="col-md-2 side left">
                 <div className="side-toolbar">
                     {
                         list.map((item, index) => {
                             return (
-                                <div className={false ? 'toolbar-item selected' : 'toolbar-item'} key={index}>
-                                    <a onClick={() => this.categoryChange(item.router)}>
+                                <div className='toolbar-item' key={index}>
+                                    <NavLink 
+                                        activeStyle={selectStyle} 
+                                        to={`/category/${item.router}`} 
+                                        onClick={() => this.categoryChange(item.router)}
+                                    >
                                         <b>{index + 1}.</b>{item.router}
-                                    </a>
+                                    </NavLink>
                                 </div>
                             );
                         })

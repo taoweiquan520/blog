@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 import { CSSTransitionGroup } from 'react-transition-group';
 import { getArticleList } from '../../actions/articleAction';
 import { article } from '../../../public/article.js';
@@ -40,21 +39,19 @@ class ArticleList extends React.Component {
         // 获取img中的src正则
         const imgReg = /<img.*?(?:>|\/>)/gi;
         const srcReg = /src=[\'\"]?([^\'\"]*)[\'\"]?/i;
-
         const renderArticleList = 
             allIds.map((item, index) => {
                 const img = item.content.match(imgReg);
                 const imgSrc = img[0] ? img[0].match(srcReg) : '';
-                debugger
+
                 return <div className={imgSrc[1] ? "article-list has-img" : "article-list"} key={index}>
                     <div className="inner">
                         <h2 className="article-title"><Link className="article-link" to={`/article/${item.article_id}`}>{item.title}</Link></h2>
                         <p className="abstract">
-                            {item.content.slice(0, 15)}
+                            {item.content}
                         </p>
                         <div className="article-tool">
                             <span className="article-date">{item.create_time}</span>
-                            <span className="article-more"><Link to={`/article/${item.article_id}`}>Read more<i>></i></Link></span>
                         </div>
                     </div>
                     {
@@ -68,7 +65,7 @@ class ArticleList extends React.Component {
             });   
 
         return (
-            <div className="col-md-10 content-list middle">
+            <div className="col-md-7 content-list middle">
                 <CSSTransitionGroup transitionName="example" transitionEnterTimeout={300} transitionLeaveTimeout={300}>
                 {
                     allIds.length > 0 ? renderArticleList : 
