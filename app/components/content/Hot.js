@@ -1,41 +1,20 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-
-import './css/hot.css';
+import { getHotArticleList } from '../../actions/articleAction';
+import ArticleRightSide from './../common/ArticleRightSide';
 
 class Hot extends React.Component {
+    componentDidMount() {
+        const {dispatch} = this.props;
+        dispatch(getHotArticleList.asyncAction());
+    }
+
     render () {
-        const hotList = [
-            {
-                article_id: 1,
-                title: '我是一个hot标题,我超出一行了,会有省略号',
-                view: 125
-            },
-            {
-                article_id: 2,
-                title: '我是一个hot标题',
-                view: 126
-            },
-            {
-                article_id: 3,
-                title: '我是一个hot标题,我超出一行了,会有省略号',
-                view: 127
-            },
-            {
-                article_id: 4,
-                title: '我是一个hot标题',
-                view: 128
-            },
-            {
-                article_id: 5,
-                title: '我是一个hot标题,我超出一行了,会有省略号',
-                view: 129
-            }
-        ];
+        const {hotList} = this.props;
         return (
             <div className="col-md-3 right">
-                <div className="hot-list">
+                {/* <div className="hot-list">
                     <div className="hot-list-title">阅读排行榜</div>
                 {
                     hotList.map((item, index) => (
@@ -48,7 +27,12 @@ class Hot extends React.Component {
                         </Link>
                     ))
                 }
-                </div>
+                </div> */}
+                <ArticleRightSide
+                    className="aaa"
+                    list={hotList}
+                    title="阅读排行榜"
+                />
                 <div className="keyword-wrap">
 
                 </div>
@@ -57,6 +41,6 @@ class Hot extends React.Component {
     }
 }
 const mapStateToProps = (state, ownProps) => {
-    return state.appReducer;
+    return state.latestReducer;
 }
 export default connect(mapStateToProps)(Hot);

@@ -99,3 +99,35 @@ export const seeArticleDetail = {
         }
     }
 }
+
+// 获得热度最高文章
+export const getHotArticleList = {
+    asyncAction: function() {
+        const self = this;
+
+        return async (dispatch) => {
+            dispatch(appActions.fetchStart());
+
+            return await axios({
+                method: 'get',
+                url: '/api/article/getHotList.json',
+            })
+                .then(json => {
+                    dispatch(self.action(json.data));
+                    dispatch(appActions.fetchSuccess());
+                })
+                .catch(err =>{
+                    console.log('err', err)
+                    dispatch(appActions.fetchFail(err));
+                });
+        }
+    },
+    action: (data) => {
+        return {
+            type: types.GET_HOT_ARTICLE_LIST,
+            payload: {
+                data
+            }
+        }
+    }
+}

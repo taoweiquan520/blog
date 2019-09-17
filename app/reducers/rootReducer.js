@@ -81,12 +81,13 @@ import {combineReducers} from 'redux';
 import appReducer from './appReducer';
 import articleReducer from './articleReducer';
 import commentReducer from './commentReducer';
-
+import latestReducer from './latestReducer';
 
 const rootReducer = combineReducers({
     appReducer,
     articleReducer,
-    commentReducer
+    commentReducer,
+    latestReducer,
 });
 
 export default rootReducer;
