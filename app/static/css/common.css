@@ -35,7 +35,12 @@ body {
   visibility: hidden;
   height: 0;
 }
-
+.pull-left {
+  float: left;
+}
+.pull-right {
+  float: right;
+}
 /* 栅格 */
 .row {
   margin-right: -15px;

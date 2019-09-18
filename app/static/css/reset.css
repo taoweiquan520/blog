@@ -43,6 +43,5 @@ a:active,
 button:active,
 input:active,
 input:focus {
-    border: none;
     outline: none;
 }

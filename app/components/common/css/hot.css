@@ -4,24 +4,48 @@
 .right-side .right-side-title {
     padding-left: 10px;
     height: 32px;
-    background-color: #ea6f5a;
-    color: #fff;
+    color: #212121;
     font-size: 16px;
     line-height: 30px;
 }
 .right-side a {
-    padding: 5px 10px;
     display: block;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    border-left: 1px solid #ea6f5a;
-    border-right: 1px solid #ea6f5a;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed #eee;
     color: #777;
+    /* overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; */
 }
-.right-side a:last-child {
-    border-bottom: 1px solid #ea6f5a;
+.date-wrapp {
+    margin-right: 10px;
+    margin-top: 3px;
+    width: 32px;
+    height: 34px;
+    background: #C8E9DE;
+    border-radius: 2px;
+    color: #017E66;
+    text-align: center;
 }
-.keyword-wrap {
-
+.date-wrapp .date-up {
+    font-size: 12px;
+    transform: scale(0.833);
+}
+.date-wrapp .date-down {
+    font-size: 14px;
+    border-radius: 2px;
+    background: #EBF7F3;
+    font-weight: 500;
+    margin-top: -2px;
+}
+.date-detail {
+    margin-left: 40px;
+    color: #999;
+    font-size: 12px;
+}
+.date-detail .date-detail-title:hover {
+    text-decoration: underline;
+    color: #017e66;
+    cursor: pointer;
 }

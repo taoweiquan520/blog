@@ -1,26 +1,72 @@
+/**
+ * @param
+ * title 标题
+ * list 渲染的列表
+ * className 自定义class
+ */
 import React from "react";
 import { Link } from 'react-router-dom';
 import './css/hot.css';
 
 class ArticleRightSide extends React.Component {
+    mon(dateStr) {
+        switch (dateStr) {
+            case '01':
+                return 'JAN'
+            case '02':
+                return 'FEB'
+            case '03':
+                return 'MAR'
+            case '04':
+                return 'APR'
+            case '05':
+                return 'MAY'
+            case '06':
+                return 'JUN'
+            case '07':
+                return 'JUL'
+            case '08':
+                return 'AUG'
+            case '09':
+                return 'SEP'
+            case '10':
+                return 'OCT'
+            case '11':
+                return 'NOV'
+            case '12':
+                return 'DEC'
+            default:
+                return ''
+        }
+    }
     render() {
         const {list, title, className} = this.props;
-
+        
         return (
-            <div 
+            <div
                 className={className && typeof className === 'string' ? `right-side ${className}` : 'right-side'}
             >
                 <div className="right-side-title">{title}</div>
             {
-                list.map((item, index) => (
-                    <Link 
+                list.map((item, index) => {
+                    console.log('item.create_time.slice(6,8)', item.create_time.slice(5, 7))
+                    return <Link 
                         to={`/article/${item.article_id}`}
                         title={item.title}
                         key={index}
                     >
-                        {`${index + 1}. ${item.title}`}
+                        <div className="date-wrapp pull-left">
+                            <div className="date-up">{this.mon(item.create_time && item.create_time.slice(5, 7))}</div>
+                            <div className="date-down">{item.create_time && item.create_time.slice(8, 10)}</div>
+                        </div>
+                        <div className="date-detail">
+                            <div className="date-detail-title">{item.title}</div>
+                            <span>{item.create_time && item.create_time.slice(5, 10)}</span>
+                            &nbsp;·&nbsp;
+                            <span>阅读量：{item.views}</span>
+                        </div>
                     </Link>
-                ))
+                })
             }
             </div>
         )

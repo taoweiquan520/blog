@@ -14,20 +14,6 @@ class Hot extends React.Component {
         const {hotList} = this.props;
         return (
             <div className="col-md-3 right">
-                {/* <div className="hot-list">
-                    <div className="hot-list-title">阅读排行榜</div>
-                {
-                    hotList.map((item, index) => (
-                        <Link 
-                            to={`/article/${item.article_id}`}
-                            title={item.title}
-                            key={index}
-                        >
-                            {`${index + 1}. ${item.title}`}
-                        </Link>
-                    ))
-                }
-                </div> */}
                 <ArticleRightSide
                     className="aaa"
                     list={hotList}
