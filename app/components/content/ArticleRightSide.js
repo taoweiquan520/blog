@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getHotArticleList } from '../../actions/articleAction';
-import ArticleRightSide from './../common/ArticleRightSide';
+import Hot from './../common/Hot';
 
-class Hot extends React.Component {
+class ArticleRightSide extends React.Component {
     componentDidMount() {
         const {dispatch} = this.props;
         dispatch(getHotArticleList.asyncAction());
@@ -14,7 +14,7 @@ class Hot extends React.Component {
         const {hotList} = this.props;
         return (
             <div className="col-md-3 right">
-                <ArticleRightSide
+                <Hot
                     className="aaa"
                     list={hotList}
                     title="阅读排行榜"
@@ -29,4 +29,4 @@ class Hot extends React.Component {
 const mapStateToProps = (state, ownProps) => {
     return state.latestReducer;
 }
-export default connect(mapStateToProps)(Hot);
+export default connect(mapStateToProps)(ArticleRightSide);

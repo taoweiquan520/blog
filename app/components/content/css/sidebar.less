@@ -1,0 +1,33 @@
+@import '../../../static/css/theme.less';
+/* siderbar css */
+.side {
+    padding: 20px 15px 0;
+}
+.side-toolbar {
+    .toolbar-item {
+        height: 34px;
+        display: flex;
+        align-items: center;
+        color: #757575;
+        text-decoration: none;
+        margin-bottom: 1px;
+
+        .selected {
+            background: #009A61;
+            color: #fff;
+            font-weight: 900;
+        }
+    }
+    a {
+        display: block;
+        padding-left: 10px;
+        width: 100%;
+        height: 100%;
+        color: #757575;
+        line-height: 34px;
+        border-radius: 4px;
+        &:hover {
+            background: rgba(0,154,97,0.08);
+        }
+    }
+}

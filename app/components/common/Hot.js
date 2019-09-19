@@ -8,7 +8,7 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import './css/hot.less';
 
-class ArticleRightSide extends React.Component {
+class Hot extends React.Component {
     // 月份英文前三个字母缩写
     mon(dateStr) {
         switch (dateStr) {
@@ -74,4 +74,4 @@ class ArticleRightSide extends React.Component {
     }
 }
 
-export default ArticleRightSide;
+export default Hot;

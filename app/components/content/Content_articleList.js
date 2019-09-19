@@ -6,7 +6,7 @@ import { getArticleList } from '../../actions/articleAction';
 import { article } from '../../../public/article.js';
 
 // css
-import './css/content_articleList.css';
+import './css/content_articleList.less';
 // import '../../../mock';
 
 class ArticleList extends React.Component {

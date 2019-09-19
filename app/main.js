@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import route from './route/router';
 
-import './static/css/reset.css';
-import './static/css/common.css';
-import './static/css/main.css';
+import './static/css/reset.less';
+import './static/css/common.less';
+import './static/css/main.less';
 
 const root = document.getElementById('root');
 

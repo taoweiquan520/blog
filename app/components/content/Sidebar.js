@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { getArticleList } from '../../actions/articleAction';
 import PropTypes from 'prop-types';
-import './css/sidebar.css';
+import './css/sidebar.less';
 
 class Sidebar extends React.Component {
     static contextTypes = {
@@ -49,8 +49,8 @@ class Sidebar extends React.Component {
                         list.map((item, index) => {
                             return (
                                 <div className='toolbar-item' key={index}>
-                                    <NavLink 
-                                        activeStyle={selectStyle} 
+                                    <NavLink
+                                        activeClassName='selected'
                                         to={`/category/${item.router}`} 
                                         onClick={() => this.categoryChange(item.router)}
                                     >

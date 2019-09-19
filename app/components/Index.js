@@ -9,16 +9,13 @@ import rootReducer from '../reducers/rootReducer';
 import NotFount from './NotFount';
 import Header from './header/Header';
 import Sidebar from './content/Sidebar';
-import Hot from'../components/content/Hot';
+import ArticleRightSide from'../components/content/ArticleRightSide';
 import Content from './content/Content';
 import ArticleList from './content/Content_articleList';
 import ArticleDetail from './content/Content_articleDetail';
 import Footer from './footer/Footer';
 import Loading from '../common/Loading';
 import connectRoute from '../common/connectRoute';
-// css
-import '../static/css/reset.css';
-import '../static/css/main.css';
 
 const store = createStore(
     rootReducer,
@@ -44,7 +41,7 @@ class Index extends React.Component {
                                 <Route path="/article/:type" component={ArticleDetailWrap} />
                                 {/* <Route component={NotFount} /> */}
                             </Switch>
-                            <Hot />
+                            <ArticleRightSide />
                         </div>
                     </div>
                     <Footer />

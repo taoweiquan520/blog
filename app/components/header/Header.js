@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import './css/header.css';
+import './css/header.less';
 import { appActions } from '../../actions/appAction';
 import iconSearch from '../../static/images/icon-search.png';
 import refresh from '../../static/images/refresh.png';
