@@ -6,9 +6,10 @@
  */
 import React from "react";
 import { Link } from 'react-router-dom';
-import './css/hot.css';
+import './css/hot.less';
 
 class ArticleRightSide extends React.Component {
+    // 月份英文前三个字母缩写
     mon(dateStr) {
         switch (dateStr) {
             case '01':
@@ -39,6 +40,7 @@ class ArticleRightSide extends React.Component {
                 return ''
         }
     }
+    
     render() {
         const {list, title, className} = this.props;
         
@@ -48,9 +50,8 @@ class ArticleRightSide extends React.Component {
             >
                 <div className="right-side-title">{title}</div>
             {
-                list.map((item, index) => {
-                    console.log('item.create_time.slice(6,8)', item.create_time.slice(5, 7))
-                    return <Link 
+                list.map((item, index) => (
+                    <Link 
                         to={`/article/${item.article_id}`}
                         title={item.title}
                         key={index}
@@ -63,10 +64,10 @@ class ArticleRightSide extends React.Component {
                             <div className="date-detail-title">{item.title}</div>
                             <span>{item.create_time && item.create_time.slice(5, 10)}</span>
                             &nbsp;·&nbsp;
-                            <span>阅读量：{item.views}</span>
+                            <span>{item.views}人浏览</span>
                         </div>
                     </Link>
-                })
+                ))
             }
             </div>
         )

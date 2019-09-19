@@ -62,6 +62,22 @@ module.exports = {
                 ]
             },
             {
+                test: /\.less$/,
+                use: [
+                    {
+                        loader: 'style-loader' // creates style nodes from JS strings
+                    }, {
+                        loader: 'css-loader', // translates CSS into CommonJS
+                        options: {
+                            modules: false,   //指定启动css modules,
+                            // url: false
+                        }
+                    }, {
+                        loader: 'less-loader' // compiles Less to CSS
+                    }
+                ]
+            },
+            {
                 test: /\.(png|jpg|gif)$/,
                 use: [
                   {
