@@ -19,7 +19,9 @@ const store = createStore(
 const route = (
     <Provider store={store}>
         <Router>
-            <Index />
+            <Route path="/" component={Index} >
+
+            </Route>
         </Router>
     </Provider>
 )

@@ -29,25 +29,23 @@ const ArticleDetailWrap = connectRoute(ArticleDetail);
 class Index extends React.Component {
     render() {
         return (
-            <Provider store = {store}>
-                <div className="blog-wrap">
-                    <Header />
-                    <div className="container index">
-                        <div className="row">
-                            <Sidebar />
-                            <Switch>
-                                <Route exact path="/" component={Content} />
-                                <Route path="/category/:type" component={ArticleListWrap} />
-                                <Route path="/article/:type" component={ArticleDetailWrap} />
-                                {/* <Route component={NotFount} /> */}
-                            </Switch>
-                            <ArticleRightSide />
-                        </div>
+            <div className="blog-wrap">
+                <Header />
+                <div className="container index">
+                    <div className="row">
+                        <Sidebar />
+                        <Switch>
+                            <Route exact path="/" component={Content} />
+                            <Route path="/category/:type" component={ArticleListWrap} />
+                            <Route path="/article/:type" component={ArticleDetailWrap} />
+                            {/* <Route component={NotFount} /> */}
+                        </Switch>
+                        <ArticleRightSide />
                     </div>
-                    <Footer />
-                    <Loading />
                 </div>
-            </Provider>
+                <Footer />
+                <Loading />
+            </div>
         )
     }
 }
