@@ -5,7 +5,7 @@ import ArticleList from './Content_articleList';
 class Content extends React.Component {
     render() {
         return (
-            <div className="content">
+            <div className="col-md-7 content-list middle">
                 {/* <ArticleList /> */}
                 content module
             </div>

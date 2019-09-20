@@ -34,12 +34,7 @@ class Index extends React.Component {
                 <div className="container index">
                     <div className="row">
                         <Sidebar />
-                        <Switch>
-                            <Route exact path="/" component={Content} />
-                            <Route path="/category/:type" component={ArticleListWrap} />
-                            <Route path="/article/:type" component={ArticleDetailWrap} />
-                            {/* <Route component={NotFount} /> */}
-                        </Switch>
+                        {this.props.children}
                         <ArticleRightSide />
                     </div>
                 </div>

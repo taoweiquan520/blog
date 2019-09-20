@@ -7,6 +7,17 @@ import { createLogger } from 'redux-logger';
 import rootReducer from '../reducers/rootReducer';
 import Index from '../components/Index';
 
+
+import NotFount from '../components/NotFount';
+import connectRoute from '../common/connectRoute';
+import Content from '../components/content/Content';
+import ArticleList from '../components/content/Content_articleList';
+import ArticleDetail from '../components/content/Content_articleDetail';
+
+const ArticleListWrap = connectRoute(ArticleList);
+const ArticleDetailWrap = connectRoute(ArticleDetail);
+
+
 const loggerMiddleware = createLogger();
 const store = createStore(
     rootReducer,
@@ -19,9 +30,12 @@ const store = createStore(
 const route = (
     <Provider store={store}>
         <Router>
-            <Route path="/" component={Index} >
-
-            </Route>
+            <Index>
+                <Route exact path="/" component={Content} />
+                <Route path="/category/:type" component={ArticleListWrap} />
+                <Route path="/article/:type" component={ArticleDetailWrap} />
+                <Route path="*" component={NotFount} />
+            </Index>
         </Router>
     </Provider>
 )
