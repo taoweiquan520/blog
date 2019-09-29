@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import { Route, IndexRoute, BrowserRouter as Router, Switch } from 'react-router-dom';
+import { Route, Redirect, BrowserRouter as Router, Switch } from 'react-router-dom';
 import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import rootReducer from '../reducers/rootReducer';
@@ -30,12 +30,14 @@ const store = createStore(
 const route = (
     <Provider store={store}>
         <Router>
-            <Index>
-                <Route exact path="/" component={Content} />
-                <Route path="/category/:type" component={ArticleListWrap} />
+            <switch>
+                <Route exact path="/" component={Index} />
+                <Route exact path="/category/:type" component={Index} />
+                <Route exact path="/login" component={Index} />
+                {/* <Route path="/category/:type" component={ArticleListWrap} />
                 <Route path="/article/:type" component={ArticleDetailWrap} />
-                <Route path="*" component={NotFount} />
-            </Index>
+                <Route path="*" component={NotFount} /> */}
+            </switch>
         </Router>
     </Provider>
 )

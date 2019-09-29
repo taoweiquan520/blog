@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
@@ -26,6 +26,26 @@ const store = createStore(
 const ArticleListWrap = connectRoute(ArticleList);
 const ArticleDetailWrap = connectRoute(ArticleDetail);
 
+const InitCom = () => (
+    <Fragment>
+        <Route exact path="/" render={() =>
+            <Fragment>
+                <Sidebar />
+                <Content />
+                <ArticleRightSide />
+            </Fragment>
+        } />
+        <Route exact path="/category/:type" render={() =>
+            <Fragment>
+                <Sidebar />
+                <ArticleListWrap />
+                <ArticleRightSide />
+            </Fragment>
+        } />
+        <Route exact path="/article/:id" component={ArticleDetailWrap} />
+    </Fragment>
+)
+
 class Index extends React.Component {
     render() {
         return (
@@ -33,9 +53,7 @@ class Index extends React.Component {
                 <Header />
                 <div className="container index">
                     <div className="row">
-                        <Sidebar />
-                        {this.props.children}
-                        <ArticleRightSide />
+                        <InitCom />
                     </div>
                 </div>
                 <Footer />
