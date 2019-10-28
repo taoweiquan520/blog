@@ -26,25 +26,6 @@ const store = createStore(
 const ArticleListWrap = connectRoute(ArticleList);
 const ArticleDetailWrap = connectRoute(ArticleDetail);
 
-const InitCom = () => (
-    <Fragment>
-        <Route exact path="/" render={() =>
-            <Fragment>
-                <Sidebar />
-                <Content />
-                <ArticleRightSide />
-            </Fragment>
-        } />
-        <Route exact path="/category/:type" render={() =>
-            <Fragment>
-                <Sidebar />
-                <ArticleListWrap />
-                <ArticleRightSide />
-            </Fragment>
-        } />
-        <Route exact path="/article/:id" component={ArticleDetailWrap} />
-    </Fragment>
-)
 
 class Index extends React.Component {
     render() {
@@ -53,7 +34,10 @@ class Index extends React.Component {
                 <Header />
                 <div className="container index">
                     <div className="row">
-                        <InitCom />
+                        <Sidebar />
+                        <Route path="/" exact component={Content} />
+                        <Route path="/category/:type" component={ArticleListWrap} />
+                        <ArticleRightSide />
                     </div>
                 </div>
                 <Footer />

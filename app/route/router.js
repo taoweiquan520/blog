@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import { Route, Redirect, BrowserRouter as Router, Switch } from 'react-router-dom';
@@ -30,14 +30,14 @@ const store = createStore(
 const route = (
     <Provider store={store}>
         <Router>
-            <switch>
-                <Route exact path="/" component={Index} />
-                <Route exact path="/category/:type" component={Index} />
-                <Route exact path="/login" component={Index} />
-                {/* <Route path="/category/:type" component={ArticleListWrap} />
+            <Fragment>
+                <Route path="/" component={Index} />
+                {/* <Route path="/category/:type" component={Index} /> */}
+                {/* <Route path="/login" component={Index} /> */}
+                {/* <Route path="/category/:type" component={ArticleListWrap} /> */}
                 <Route path="/article/:type" component={ArticleDetailWrap} />
-                <Route path="*" component={NotFount} /> */}
-            </switch>
+                {/* <Route path="*" component={NotFount} /> */}
+            </Fragment>
         </Router>
     </Provider>
 )
