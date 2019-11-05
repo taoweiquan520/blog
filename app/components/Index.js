@@ -33,12 +33,21 @@ class Index extends React.Component {
             <div className="blog-wrap">
                 <Header />
                 <div className="container index">
-                    <div className="row">
-                        <Sidebar />
-                        <Route path="/" exact component={Content} />
-                        <Route path="/category/:type" component={ArticleListWrap} />
-                        <ArticleRightSide />
-                    </div>
+                    <Route path="/" exact render={() => (
+                        <div className="row">
+                            <Sidebar />
+                            <Content />
+                            <ArticleRightSide />
+                        </div>
+                    )} />
+                    <Route path="/category/:type" render={({match}) => (
+                        <div className="row">
+                            <Sidebar />
+                            <ArticleListWrap match={match} />
+                            <ArticleRightSide />
+                        </div>
+                    )} />
+                    <Route path="/article/:type" component={ArticleDetailWrap} />
                 </div>
                 <Footer />
                 <Loading />

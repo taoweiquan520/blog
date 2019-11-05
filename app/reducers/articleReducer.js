@@ -12,17 +12,6 @@ const getArticleListById = (state, action) => {
     
     return byId;
 }
-
-// articleById: getArticleDetail
-const getArticleDetail = (state, action) => {
-    const {payload} = action;
-    const {data} = payload;
-
-    return Object.assign({}, state, {
-        [data.id]: data
-    });
-}
-
 // allArticles: GET_ARTICLE_LIST
 const getArticleListAllIds = (state, action) => {
     const {payload} = action;
@@ -30,6 +19,24 @@ const getArticleListAllIds = (state, action) => {
     
     return data.list;
 }
+
+// articleById: getArticleDetail
+const getArticleDetail = (state, action) => {
+    const {payload} = action;
+    const {data} = payload;
+
+    return Object.assign({}, state, {
+        [data.data.article_id]: data.data
+    });
+}
+// allGetArticleDetail: GET_ARTICLE_DETAIL
+const getArticleDetailAllIds = (state, action) => {
+    const {payload} = action;
+    const {data} = payload;
+
+    return data.data.article_id;
+}
+
 
 const articleById = (state = {}, action) => {
     switch (action.type) {
@@ -49,6 +56,7 @@ const allArticles = (state = [], action) => {
         case 'GET_ARTICLE_LIST':
             return getArticleListAllIds(state, action);
         case 'ADD_ARTICLE':
+            return getArticleDetailAllIds(state, action);
         case 'GET_ARTICLE_DETAIL':
         case 'ADD_COMMENT':
         default:

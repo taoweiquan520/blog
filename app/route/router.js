@@ -35,7 +35,7 @@ const route = (
                 {/* <Route path="/category/:type" component={Index} /> */}
                 {/* <Route path="/login" component={Index} /> */}
                 {/* <Route path="/category/:type" component={ArticleListWrap} /> */}
-                <Route path="/article/:type" component={ArticleDetailWrap} />
+                {/* <Route path="/article/:type" component={ArticleDetailWrap} /> */}
                 {/* <Route path="*" component={NotFount} /> */}
             </Fragment>
         </Router>

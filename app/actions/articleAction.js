@@ -17,19 +17,14 @@ export const getArticleList = {
                     category: posts
                 }
             })
-                .then(json => {
-                    dispatch(self.action(json.data));
-                    dispatch(appActions.fetchSuccess());
-                })
-                .catch(err =>{
-                    console.log('err', err)
-                    dispatch(appActions.fetchFail(err));
-                });
-
-                
-            // const res = await axios.post('/api/article/getArticles.json', { category: posts });
-            // dispatch(self.action(res.data));
-            // dispatch(appActions.fetchSuccess());
+            .then(json => {
+                dispatch(self.action(json.data));
+                dispatch(appActions.fetchSuccess());
+            })
+            .catch(err =>{
+                console.log('err', err)
+                dispatch(appActions.fetchFail(err));
+            });
         }
     },
     action: (data) => {  //data：后天返回的文章列表数据
@@ -69,31 +64,34 @@ export const addArticle = {
     }
 }
 
-// 查看文章动作
+// 查看文章详情
 // const GET_ARTICLE_DETAIL = 'GET_ARTICLE_DETAIL';
-export const seeArticleDetail = {
+export const getArticleDetail = {
     asyncAction: function(posts) {
-        return (dispatch) => {
+        const self = this;
+        return async (dispatch) => {
             dispatch(appActions.fetchStart());
-            return fetch(`~~~~`)
-                .then(res => res,
-                    err => {
-                        console.log('err', err)
-                        dispatch(appActions.fetchFail(err));
-                    }
-                )
-                .then(json => {
-                    dispatch(this.action(posts.articleId, json));
-                    dispatch(appActions.fetchSuccess());
-                });
-
+            return await axios({
+                method: 'post',
+                url: '/api/article/getArticleDetail.json',
+                data: {
+                    articleId: posts
+                }
+            })
+            .then(json => {
+                dispatch(self.action(json.data));
+                dispatch(appActions.fetchSuccess());
+            })
+            .catch(err =>{
+                console.log('err', err)
+                dispatch(appActions.fetchFail(err));
+            });               
         }
     },
-    action: (articleId, data) => {  // articleId: 文章id ； data：后台返回的文章详情
+    action: (data) => {  // articleId: 文章id ； data：后台返回的文章详情
         return {
             type: types.GET_ARTICLE_DETAIL,
             payload: {
-                articleId,
                 data
             }
         }

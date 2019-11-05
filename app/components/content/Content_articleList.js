@@ -20,14 +20,14 @@ class ArticleList extends React.Component {
     }
 
     componentDidMount() {
-        const {dispatch, match} = this.props;
+        const { dispatch, match } = this.props;
         
         dispatch(getArticleList.asyncAction(match.params.type));
         this.setState({
             list: article.list,
             pageSize: article.pageSize,
             pageNum: article.pageNum
-        })
+        });
     }
 
     componentWillUpdate(nextProps) {
