@@ -6,6 +6,7 @@ import highlight from 'highlight.js';
 import { getArticleDetail } from '../../actions/articleAction';
 // css
 import 'simplemde/dist/simplemde.min.css';
+import './css/content_articleDetail.less';
 
 class ArticleDetail extends React.Component {
     constructor(props) {
@@ -47,8 +48,15 @@ class ArticleDetail extends React.Component {
 
 
     render() {
-        const { allIds, byId } = this.props;
-
+        const { detail = {} } = this.props;
+        
+        const { 
+            title = '', 
+            create_time, 
+            content = '', 
+            views = 0,
+        } = detail;
+        
         return (
             <div className="article-wrap">
                 {/* <textarea id="editor"></textarea>
@@ -60,12 +68,13 @@ class ArticleDetail extends React.Component {
                     <div className="main-area">
                         <article>
                             <div className="author-block">
-                                123
-                            </div>
-                            <h1 className="article-title">{}</h1>
-                            <div className="article-content">
+                                <a className="avatar"></a>
+                                <div className="author-info">
 
+                                </div>
                             </div>
+                            <h1 className="article-title">{title}</h1>
+                            <div className="article-content" dangerouslySetInnerHTML={{ __html: content }}>{}</div>
                         </article>
                     </div>
                     <div className="sidebar">
@@ -78,7 +87,11 @@ class ArticleDetail extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    return state.articleReducer
+    const { allIds, byId } = state.articleReducer;
+
+    return {
+        detail: byId[allIds]
+    }
 }
 
 export default connect(mapStateToProps)(ArticleDetail);

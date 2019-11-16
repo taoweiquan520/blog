@@ -55,9 +55,9 @@ const allArticles = (state = [], action) => {
     switch (action.type) {
         case 'GET_ARTICLE_LIST':
             return getArticleListAllIds(state, action);
-        case 'ADD_ARTICLE':
-            return getArticleDetailAllIds(state, action);
         case 'GET_ARTICLE_DETAIL':
+            return getArticleDetailAllIds(state, action);
+        case 'ADD_ARTICLE':
         case 'ADD_COMMENT':
         default:
             return state;
